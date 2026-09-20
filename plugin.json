@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "revise-and-resubmit",
+  "version": "0.1.0",
+  "description": "原稿を複数の視点で読み、本文に沿った指摘と人間のフィードバックを記録する編集ワークフロー。",
+  "author": {
+    "name": "laiso"
+  },
+  "repository": "https://github.com/laiso/revise-and-resubmit",
+  "license": "MIT AND Apache-2.0"
+}

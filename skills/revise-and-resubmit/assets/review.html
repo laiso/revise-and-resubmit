@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Revise &amp; Resubmit（修正してくれたら検討しますよ）</title><link rel="stylesheet" href="@@ASSETS@@/review.css"></head><body>
+<header><h1 id="review-title"></h1><nav id="role-filters" aria-label="担当で絞り込む"></nav></header>
+<main id="manuscript"></main><footer class="review-links"><a href="report.md">総合レポート</a><a href="structure.md">構造図</a><a href="slob-police.md">停止記録</a><a href="annotations.json">指摘データ</a></footer>
+<button id="feed-trigger" class="feed-trigger" hidden>指摘を書く</button>
+<dialog id="feed-dialog" class="feed-dialog" aria-labelledby="feed-title">
+<div class="feed-heading"><h2 id="feed-title">指摘を書く</h2><button id="feed-close" aria-label="閉じる">×</button></div>
+<div class="feed-selected"><span id="feed-location"></span><blockquote id="feed-quote"></blockquote></div>
+<label for="feed-reaction">指摘事項</label><textarea id="feed-reaction" rows="3" placeholder="指摘コメントを入力してください"></textarea>
+<div class="feed-actions"><span id="feed-status" class="feed-status" role="status"></span><button id="feed-save" class="primary">保存</button></div>
+</dialog>
+<script src="review-data.js"></script><script src="@@ASSETS@@/review.js"></script><script src="@@ASSETS@@/human-feedbox.js"></script></body></html>

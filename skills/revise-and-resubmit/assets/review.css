@@ -1,0 +1,110 @@
+
+*{box-sizing:border-box}body{margin:0;background:#f5f2ec;color:#25282b;font-family:system-ui,sans-serif}header,main{max-width:1250px;margin:auto;padding:28px}header{border-bottom:1px solid #d9d1c5}h1{font-size:27px;max-width:900px;line-height:1.6}.tag{color:#9d302e;letter-spacing:.12em;font-size:13px}.intro{max-width:900px;line-height:1.8;color:#555}.row{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(280px,1fr);gap:36px;margin:0 0 28px}.copy{background:white;padding:24px 30px;border-left:2px solid #ddd}.copy p{line-height:2.05;margin:6px 0;font-size:16px}.copy small{color:#888}a{color:#42697c}mark{background:#fff0d4;text-decoration:underline;text-decoration-color:#bd4b40;text-underline-offset:5px}.note{border-left:3px solid #b9443e;background:#fffaf7;padding:15px 18px;margin-bottom:12px}.note p{font-size:14px;line-height:1.85;white-space:normal}.label{font-size:12px;font-weight:700;color:#a53c36}.label span{float:right;color:#777}small{font-size:12px;color:#777}button{padding:8px 13px;border:1px solid #cbbeb0;border-radius:20px;background:white;cursor:pointer;margin:4px}button.active{background:#292d32;color:white}nav{margin:18px 0}.hidden{display:none}@media(max-width:760px){.row{grid-template-columns:1fr;gap:8px}header,main{padding:16px}.copy{padding:18px}h1{font-size:22px}}
+
+/* Compact editorial header */
+header{padding-top:28px;padding-bottom:20px}header h1{margin:16px 0 20px}header nav{margin:0 0 10px}.review-info{font-size:13px;color:var(--muted)}.review-info summary{cursor:pointer;width:fit-content;padding:5px 0}.review-info>div{max-width:820px;line-height:1.8;padding:4px 0 8px}.review-info p{margin:8px 0}.review-info small{display:block;overflow-wrap:anywhere}
+
+.reader-exit{display:inline-block;color:#a62b23;background:#fbeae6;border:1px solid #e9b9b2;border-radius:4px;padding:3px 9px;font-size:12px;font-weight:700;letter-spacing:.04em}
+
+.review-links{max-width:1250px;margin:0 auto;padding:24px 28px 40px;border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:12px 24px;font-size:13px}
+
+.feed-trigger{position:fixed;z-index:20;background:#171717;color:#fff;border:0;box-shadow:0 3px 12px #0002}.feed-dialog{width:min(540px,calc(100vw - 32px));border:1px solid var(--rule);border-radius:10px;padding:24px;background:var(--paper);color:var(--ink);font-family:var(--sans)}.feed-dialog::backdrop{background:#0005}.feed-dialog h2{margin:0 0 16px;font-size:19px;font-weight:500}.feed-dialog blockquote{margin:0 0 16px;padding:10px 14px;border-left:2px solid var(--accent);max-height:130px;overflow:auto;font-size:14px;line-height:1.7}.feed-dialog label{display:block;font-size:13px;margin:14px 0 6px}.feed-dialog textarea{width:100%;box-sizing:border-box;min-height:85px;padding:10px;border:1px solid var(--rule);border-radius:5px;background:#fff;font:14px/1.7 var(--sans);color:var(--ink)}.feed-actions{display:flex;justify-content:flex-end;gap:6px;margin-top:16px}.feed-dialog .primary{background:#171717;color:#fff}.feed-status{font-size:13px;color:var(--muted);min-height:1.5em}.feed-dialog textarea.prompt-output{min-height:180px}
+
+/* Inspired by https://code.claude.com/docs/en/overview, light theme.
+   Observed: background #fdfdf7, text #171717, border #eee;
+   title Anthropic Serif Display 36/40 regular; body Anthropic Sans 16/26.4.
+   Proprietary fonts are not bundled; locally installed fallbacks are used. */
+:root{color-scheme:light;--paper:#fdfdf7;--ink:#171717;--muted:#666660;--rule:#e6e6df;--accent:#b96449;--sans:"Anthropic Sans",Arial,"Noto Sans CJK JP","Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;--serif:"Anthropic Serif Display",Georgia,"Noto Serif CJK JP","Noto Serif JP","Hiragino Mincho ProN",serif}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;-webkit-font-smoothing:antialiased}
+header{border-bottom:1px solid var(--rule);padding-top:48px;padding-bottom:28px}
+h1{font-family:var(--serif);font-size:36px;line-height:1.45;font-weight:400;letter-spacing:-.025em;max-width:1000px}
+.tag{font-size:12px;letter-spacing:.1em;color:var(--muted);font-weight:500}
+.intro{color:var(--muted);font-size:14px;line-height:1.8}
+a{color:var(--ink);text-decoration-color:#aaa99f;text-underline-offset:4px}a:hover{color:#96472f;text-decoration-color:var(--accent)}
+.row{gap:40px;margin-bottom:32px}.copy{background:transparent;border-left:1px solid var(--rule);padding:12px 26px}.copy p{font-family:var(--sans);font-size:16px;line-height:1.85;font-weight:400;letter-spacing:.01em}.copy small,small{color:var(--muted)}
+mark{background:#f5e9df;color:inherit;text-decoration-color:var(--accent);text-decoration-thickness:1px;text-underline-offset:4px}
+.note{background:#f8f5ef;border-left:2px solid var(--accent);padding:14px 18px}.note p{font-size:14px;line-height:1.85}.label{color:#984d36;font-size:12px;font-weight:600}.label span{color:var(--muted)}
+button{font-family:var(--sans);font-size:13px;background:transparent;border:1px solid var(--rule);border-radius:7px;padding:8px 13px;color:var(--muted)}button:hover{background:#f0f0e9}button.active{background:#171717;color:#fdfdf7;border-color:#171717}button:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-size:.88em;background:#f0f0e9;border:1px solid var(--rule);border-radius:4px;padding:1px 4px}
+@media(max-width:760px){header{padding-top:28px}h1{font-size:28px;line-height:1.5}.row{gap:10px}.copy{padding:12px 16px}}
+
+/* Two-step human feedback composer */
+.feed-dialog{padding:24px;width:min(560px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto}.feed-heading{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}.feed-heading h2{margin:0;font-size:19px}.feed-heading button{font-size:24px;line-height:1;border:0;padding:4px 8px;margin:0;color:var(--muted)}#feed-selection{background:#f3f2eb;border-radius:6px;padding:10px 12px;margin-bottom:20px;font-size:13px}#feed-selection summary,.feed-optional summary{cursor:pointer;color:var(--muted)}#feed-location{float:right}#feed-selection blockquote{margin:12px 0 0;padding:0 12px;max-height:150px}.feed-dialog #feed-reaction{min-height:120px;resize:vertical}.feed-optional{margin-top:14px;font-size:13px}.feed-optional textarea{margin-top:10px}.feed-status:empty{display:none}.feed-status{margin:14px 0 0}.feed-actions{margin-top:22px;padding-top:16px;border-top:1px solid var(--rule);justify-content:space-between}.feed-actions .primary{margin-left:auto}.feed-preview-label{font-size:13px;color:var(--muted);margin-top:0}.feed-dialog .prompt-output{height:300px;max-height:45dvh;resize:vertical;font-size:13px;line-height:1.7}
+
+#role-filters{display:flex;align-items:center;flex-wrap:wrap;gap:8px}#role-filters button{margin:0}#role-filters button[data-filter="human-feedbox"]{margin-left:16px;position:relative}#role-filters button[data-filter="human-feedbox"]::before{content:"";position:absolute;left:-13px;top:6px;bottom:6px;border-left:1px solid var(--rule)}
+
+/* Selection action must override generic button hover styling. */
+button.feed-trigger,button.feed-trigger:hover,button.feed-trigger:focus-visible{background:#171717;color:#fdfdf7;border:1px solid #171717;opacity:1}button.feed-trigger:hover{background:#35352f;border-color:#35352f}button.feed-trigger:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* Compact single-field feedback form */
+.feed-dialog{width:min(440px,calc(100vw - 32px));padding:20px}.feed-heading{margin-bottom:14px}.feed-heading h2{font-size:17px}.feed-selected{padding:10px 12px;background:#f3f2eb;border-radius:5px;margin-bottom:16px}.feed-selected>span{font-size:11px;color:var(--muted);float:none} .feed-dialog .feed-selected blockquote{border:0;padding:0;margin:4px 0 0;max-height:100px;overflow:auto;font-size:14px;line-height:1.65;overflow-wrap:anywhere}.feed-dialog #feed-reaction{min-height:78px;height:78px}.feed-dialog #feed-preview{margin-top:12px;font-size:12px;color:var(--muted)}#feed-preview summary{cursor:pointer}.feed-dialog .prompt-output{margin-top:8px;height:180px}.feed-actions{margin-top:16px;padding-top:0;border:0;align-items:center;gap:12px}.feed-actions .feed-status{margin:0;font-size:12px;line-height:1.5}.feed-actions .primary{white-space:nowrap}.feed-dialog label{font-size:12px}
+
+.note-quote{margin:12px 0 10px;padding:5px 0 5px 12px;border-left:2px solid #c8b7a7;color:#666158;font-size:13px;line-height:1.7;overflow-wrap:anywhere}.note-quote + p{margin-top:8px}
+
+/* Font faces and fallback stacks from Claude Code Docs. Remote fonts require network access. */
+@font-face {
+  font-family: "Anthropic Sans";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-Regular-Static.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Sans";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-Medium-Static.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Sans";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-Semibold-Static.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Sans";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSans-Text-Bold-Static.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Serif Display";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Display-Regular-Static.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Serif Display";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Display-Medium-Static.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Serif Display";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Display-Semibold-Static.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Anthropic Serif Display";
+  src: url("https://assets.claude.ai/Fonts/AnthropicSerif-Display-Bold-Static.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+:root{--sans:"Anthropic Sans",system-ui,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;--serif:"Anthropic Serif Display",Georgia,"Times New Roman",Times,serif}
+.note[data-role="mind-tail"]{--reviewer:#536d79}.note[data-role="paper-plot"]{--reviewer:#75657e}.note[data-role="slob-police"]{--reviewer:#ad553d}.note[data-role="human-feedbox"]{--reviewer:#526d57}.note{border-left-color:var(--reviewer,var(--accent))}.note .label{color:var(--reviewer,var(--accent))}
+
+/* Editorial reviewer portraits: dog, owl, troll, human. */
+.reviewer-icon{display:inline-block;width:24px;height:24px;vertical-align:middle;margin-right:7px;flex-shrink:0;color:inherit}
+.note .label .reviewer-icon{width:28px;height:28px;margin-top:-3px;margin-bottom:-3px}
+#role-filters button{display:inline-flex;align-items:center}
+
+.review-check{float:right;width:15px;height:15px;margin:2px 0 0 12px;accent-color:var(--reviewer,var(--accent));cursor:pointer}
+.note.review-checked{opacity:.55}.note.review-checked>.note-quote,.note.review-checked>.reader-exit{display:none}.note.review-checked>p{text-decoration:line-through;text-decoration-thickness:1px;white-space:nowrap!important;overflow:hidden;text-overflow:ellipsis;margin-bottom:0}

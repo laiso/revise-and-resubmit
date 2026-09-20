@@ -1,0 +1,22 @@
+{
+  "name": "revise-and-resubmit",
+  "version": "0.1.0",
+  "description": "原稿を複数の視点で読み、本文に沿った指摘と人間のフィードバックを記録する編集ワークフロー。",
+  "author": {
+    "name": "laiso"
+  },
+  "repository": "https://github.com/laiso/revise-and-resubmit",
+  "license": "MIT AND Apache-2.0",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Revise & Resubmit",
+    "shortDescription": "本文に沿って指摘を返すAI編集部",
+    "developerName": "laiso",
+    "category": "Productivity",
+    "defaultPrompt": [
+      "原稿をレビューして、本文と指摘を並べたページを作ってください。"
+    ],
+    "longDescription": "原稿を複数の視点で読み、本文に沿った指摘と人間のフィードバックを記録する編集ワークフロー。",
+    "capabilities": []
+  }
+}
