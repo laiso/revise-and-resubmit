@@ -71,10 +71,6 @@ flowchart TD
 - <img src="docs/images/reviewers/human-feedbox.svg" width="24" height="24" alt=""> [human-feedbox](skills/revise-and-resubmit/references/human-feedbox.md)  
   [それはあなたです!](https://dic.pixiv.net/a/%E3%81%9D%E3%82%8C%E3%81%AF%E3%81%82%E3%81%AA%E3%81%9F%E3%81%A7%E3%81%99%21)　ブラウザで赤入れし、人間の指摘もサブエージェントの反応と同列に記録します。
 
-## 開発・検証
-
-単体・結合テストと、実モデルの判断を含む評価、ブラウザまで通すE2Eの役割は[テストとモデル評価の方針](docs/testing.md)にまとめています。
-
 ### 謝辞・参考元
 
 - [First Reader](https://github.com/Shubhamsaboo/awesome-llm-apps/tree/main/agent_skills/first-reader)（Shubhamsaboo / awesome-llm-apps）：文章を少しずつ読ませ、その時点でどう理解したかを聞いて記録する手順が、ワークフロー設計のヒントになりました。
