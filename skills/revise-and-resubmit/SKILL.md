@@ -33,7 +33,7 @@ metadata:
 
 ## 1. 対象範囲と予備知識を決める
 
-ユーザーが変更しなければ、原稿の隣にある`.revise-and-resubmit/audience.json`を再利用する。mind-tailの知識の境界と性格には`references/personas.md`を使う。選択された役割を用い、対立する読者の組を作ったり、否定的な結果を得るためにプロフィールを厳しくしたりしない。
+URL入力では、記事本文を表現と順序を保って作業ディレクトリに原稿ファイルとして保存する。ユーザーが変更しなければ、原稿の隣にある`.revise-and-resubmit/audience.json`を再利用する。mind-tailの知識の境界と性格には`references/personas.md`を使う。選択された役割を用い、対立する読者の組を作ったり、否定的な結果を得るためにプロフィールを厳しくしたりしない。
 
 原稿の隣の`.revise-and-resubmit/`配下に新しい実行ディレクトリを作り、`manifest.json`へ対象範囲、役割構成、言語、原稿ハッシュ、提示粒度を記録する。分野の一般概念を知っていても、製品や事例を知らない読者はあり得る。モデルの専門知識を黙って読者に貸し与えない。
 
@@ -87,7 +87,7 @@ python3 scripts/feed.py serve <draft> --run <run-dir> --readers mind-tail \
 
 ## 6. 結果を報告して保存する
 
-`references/report.md`に従い、ログの隣にレポートを保存してリンクする。読者の観察と構造上の仮説を明確に分ける。レポートと、生成する場合は読書ページから`structure.md`へリンクする。通常の実行では`references/room.md`に従い、`scripts/render_review.py`で本文と指摘を並べるHTMLを生成する。続いて`scripts/preview.py <run-dir> --ready-file <run-dir>/preview.json`を継続プロセスとして起動し、返されたURLをブラウザで開く。原稿パスだけの依頼は全文レビューとこの閲覧画面の起動を意味する。空きポートはOSが割り当てる。CLI環境でブラウザを開くには`--open-browser`を付けられる。
+`references/report.md`に従い、ログの隣にレポートを保存してリンクする。読者の観察と構造上の仮説を明確に分ける。レポートと、生成する場合は読書ページから`structure.md`へリンクする。通常の実行では`references/room.md`に従い、`scripts/render_review.py`で本文と指摘を並べるHTMLを生成する。続いて`scripts/preview.py <run-dir> --ready-file <run-dir>/preview.json`を継続プロセスとして起動し、返されたURLをブラウザで開く。原稿パスまたはURLだけの依頼は全文レビューとこの閲覧画面の起動を意味する。空きポートはOSが割り当てる。CLI環境でブラウザを開くには`--open-browser`を付けられる。
 
 実行後の質問には`scripts/ask.py <run-dir> <reader> "<question>"`で束を作り、その内容だけを渡した新しいエージェントを使う。回答はログの範囲に限る。未記録の観察は「記録されていない」であり、記憶を作ってよいという意味ではない。
 
