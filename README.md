@@ -80,3 +80,9 @@ flowchart TD
 スキルの定義やコードは、主にCodex/GPT-6 Atlasが執筆・実装しました。著者が原稿とレビューを読み、役割や挙動、画面への指摘を返しながら作っています。
 
 このREADMEも、著者が起草し、AIとの会話で構成や表現を検討した後に、自ら修正を行っています。
+
+## ライセンス
+
+Copyright (c) 2026 laiso
+
+[Apache License 2.0](LICENSE)
