@@ -22,6 +22,37 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 import feed
 
 
+def assert_reader_result(self, reader_feed, reader, case):
+    """提示・停止の契約を検査する。引用と理由の意味的な妥当性は人間が確認する。"""
+    self.assertTrue(reader['done'], '読書未完了')
+    self.assertTrue(reader['log'], 'ログなし')
+    decisions = []
+    for record in reader['log']:
+        entry = json.loads(record['entry'])
+        self.assertIn(entry['decision'], ('continue', 'stop'))
+        self.assertTrue(entry['reason'].strip())
+        self.assertTrue(entry['understanding'].strip())
+        visible = ''.join(reader_feed.chunks[:record['chunk']])
+        self.assertIn(entry['quote'], visible)
+        decisions.append(entry)
+    stops = [i for i, e in enumerate(decisions) if e['decision'] == 'stop']
+    if stops:
+        self.assertEqual(stops, [len(decisions) - 1], 'stop後に読書を継続')
+    self.assertEqual('stop' if stops else 'continue', case['expected'])
+    if stops:
+        stop_record = reader['log'][stops[0]]
+        expected_chunk = case['expected_stop_chunk']
+        self.assertEqual(stop_record['chunk'], expected_chunk, '期待した提示位置で停止していない')
+        # cursorは0始まり。ログだけでなく、後続の断片を取得していないことも検査する。
+        self.assertEqual(reader['cursor'], expected_chunk - 1, '停止位置より先を提示済み')
+        self.assertTrue(reader.get('final_logged'), 'quitによる停止が未完了')
+        quote = decisions[stops[0]]['quote']
+        self.assertTrue(quote.strip(), '停止理由の引用が空')
+        self.assertIn(quote, reader_feed.chunks[expected_chunk - 1], '停止した断片から引用していない')
+    else:
+        self.assertEqual(reader['log'][-1]['chunk'], len(reader_feed.chunks))
+
+
 @unittest.skipUnless(os.environ.get('RUN_LIVE_READER') == '1', '実モデルは明示実行のみ')
 class LiveReaderTests(unittest.TestCase):
     def test_slob_police_pair(self):
@@ -69,6 +100,7 @@ class LiveReaderTests(unittest.TestCase):
                     'source_sha256': hashlib.sha256(draft.read_bytes()).hexdigest(),
                     'protocol_sha256': hashlib.sha256(protocol.encode()).hexdigest(),
                     'expectation': case['expected'],
+                    'expected_stop_chunk': case.get('expected_stop_chunk'),
                     'human_review': case['review'],
                     'scope': '読者とfeedの結合。スキル探索・親の委譲・画面・意味の自動採点は対象外',
                 }, ensure_ascii=False, indent=2))
@@ -84,25 +116,7 @@ class LiveReaderTests(unittest.TestCase):
                     self.assertTrue(finals, f'CLI完了結果なし: {run}')
                     self.assertEqual(finals[-1].get('subtype'), 'success', f'予算等による未完了: {run}')
                     self.assertFalse(finals[-1].get('is_error'), f'モデル実行エラー: {run}')
-                    self.assertTrue(reader['done'], f'読書未完了: {run}')
-                    self.assertTrue(reader['log'], f'ログなし: {run}')
-                    decisions = []
-                    for record in reader['log']:
-                        entry = json.loads(record['entry'])
-                        self.assertIn(entry['decision'], ('continue', 'stop'))
-                        self.assertTrue(entry['reason'].strip())
-                        self.assertTrue(entry['understanding'].strip())
-                        visible = ''.join(reader_feed.chunks[:record['chunk']])
-                        self.assertIn(entry['quote'], visible)
-                        decisions.append(entry)
-                    stops = [i for i, e in enumerate(decisions) if e['decision'] == 'stop']
-                    if stops:
-                        self.assertEqual(stops, [len(decisions) - 1], 'stop後に読書を継続')
-                    self.assertEqual('stop' if stops else 'continue', case['expected'])
-                    if stops:
-                        self.assertIn(case['target'], decisions[stops[0]]['quote'])
-                    else:
-                        self.assertEqual(reader['log'][-1]['chunk'], len(reader_feed.chunks))
+                    assert_reader_result(self, reader_feed, reader, case)
                     self.assertEqual(draft.read_text(), case['text'])
                     print(f'{case["id"]}: 機械的検査成功。理由の妥当性は要確認: {run}', flush=True)
                 finally:
