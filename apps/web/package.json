@@ -1,0 +1,23 @@
+{
+  "name": "@revise-and-resubmit/web",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "demo": "node tools/feed-demo.mjs --pace 1200",
+    "browser": "node tools/browser-check.mjs",
+    "verify": "node tools/verify-skeleton.mjs",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit && node tools/check-entry-exports.mjs",
+    "test": "node --test test/*.test.ts"
+  },
+  "dependencies": {
+    "@revise-and-resubmit/core": "*"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250922.0",
+    "typescript": "^5.9.2",
+    "wrangler": "^4.136.2"
+  }
+}
