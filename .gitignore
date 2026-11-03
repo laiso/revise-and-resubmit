@@ -1,24 +1,3 @@
 __pycache__/
 *.py[cod]
 .revise-and-resubmit/
-
-# Web app
-node_modules/
-.wrangler/
-.cache/
-.dev.vars
-*.tsbuildinfo
-
-# 鍵（TypeSafe など）
-.env
-.env.*
-!.env.example
-
-# Local agent state, drafts, and working notes
-.claude/
-skills-lock.json
-/plan.md
-/docs/drafts/
-/docs/implementation-plan.md
-/docs/plan-review.md
-/docs/review-findings.md
